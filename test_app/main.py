@@ -14,7 +14,7 @@ DEBUG = os.getenv("SUPERBENCHMARK_DEBUG", "False") == "True"
 @app.get("/results/average")
 async def get_results_average():
     if not DEBUG:
-        raise HTTPException(status_code=500, detail="the feature is not ready for live yet")
+        raise HTTPException(status_code=500, detail="the application is not ready for start yet")
     data = await parsing_data("test_database.json")
     average_value_token_count = sum(result.token_count for result in data)
     average_value_time_to_first_token = sum(result.time_to_first_token for result in data) / len(data)
@@ -36,7 +36,7 @@ async def get_results_average():
 @app.get("/results/average/{start_time}/{end_time}")
 async def average_over_period_time(start_time: datetime, end_time: datetime):
     if not DEBUG:
-        raise HTTPException(status_code=500, detail="the feature is not ready for live yet")
+        raise HTTPException(status_code=500, detail="the application is not ready for start yet")
     data = await parsing_data("test_database.json")
     filtered_data = [result for result in data if start_time <= result.timestamp <= end_time]
     average_value_token_count = sum(result.token_count for result in filtered_data)
