@@ -1,6 +1,4 @@
 import json
-import os
-
 from model import Benchmark
 import aiofiles
 from pydantic import ValidationError
