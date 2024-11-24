@@ -4,7 +4,7 @@ from data_loader import parse_benchmark_data
 from schemas import Benchmark
 
 
-# Общая функция для расчета средних значений
+# Загал функ розрах серед знач
 def calculate_averages_values(data: List[Benchmark]) -> Dict[str, float]:
     if not data:
         return {
@@ -39,13 +39,13 @@ def calculate_averages_values(data: List[Benchmark]) -> Dict[str, float]:
     }
 
 
-# Получение всех средних значений
+# Отрим всіх серед знач
 async def get_average_metrics() -> Dict[str, float]:
     data = await parse_benchmark_data("test_database.json")
     return calculate_averages_values(data)
 
 
-# Получение средних значений за заданный период
+# Отрим середніх значень за заданий період
 async def get_filtered_metrics(
     start_time: datetime, end_time: datetime
 ) -> Dict[str, float]:
